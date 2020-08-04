@@ -3,63 +3,67 @@
 function randomNumberGenerate() {
 
 	var val = Math.floor(1000 + Math.random() * 9000); //get Random Number
-	document.getElementById("randomNumberOutput").value = val;
+	document.getElementById("randomNumber").value = val;
 
 }
 
 // Input Random Number 
 
-
+	
 function inputNumber(Number) {
-	document.getElementById("matchNumberOutput").value += Number;
+
+	document.getElementById("matchNumber").value += Number;
 
 	if (Number == "backspace") {
 
-		let val = document.getElementById("matchNumberOutput").value.length.toString()
+	var val =	document.getElementById("matchNumber").value;
+	document.getElementById("matchNumber").value = val.substr(0, val.lenght - 1);
 
 	}
-
+ 
 	if (Number == "clear") {
 
-		document.getElementById("matchNumberOutput").value = "";
+		document.getElementById("matchNumber").value = "";
 
 	}
 }
 
 
+
 function pinMatcher() {
 
-	var pin = document.getElementById("matchNumberOutput").value;
-	var rendomPin = document.getElementById("randomNumberOutput").value;
-	const erroreNotify = document.getElementById("erroreNotify");
-	const sussecMasses = document.getElementById("sussecNotify");
-	var counter = 0;
-
-	if (pin == rendomPin && pin != "") {
-
-		
-		sussecMasses.style.display = "block";
-		erroreNotify.style.display = "none";
-		document.getElementById("matchNumberOutput").value = "";
-
-	} else {
-
-		
-		if(counter > 3){
+	let inputpin = document.getElementById("matchNumber").value;
+	let rendomPin = document.getElementById("randomNumber").value;
+	const submitButton = document.getElementById("submitButton");
+	const errorMessage = document.getElementById("errorMessage");
+	const successMessage = document.getElementById("successMessage");
 	
-			document.getElementById("submitButton").disabled = true;
-			document.getElementById("submitButton").style.background = 'grey';	
-		}else{
-			counter++;
-			document.getElementById("actionLeft").innerText = counter+" try left";
-			sussecMasses.style.display = "none";
-			erroreNotify.style.display = "block";
-			document.getElementById("matchNumberOutput").value = "";
+	var count = 0;
+	
+	
+	if (inputpin == rendomPin && inputpin != "") {
+
+		successMessage.style.display = "block";
+		errorMessage.style.display = "none";
+		inputpin = "";
+
+	}else{
+
+		if(count >= 3){
+			submitButton.disabled = true;
+			submitButton.style.background = 'grey';	
 			
+		}else{
+			
+			count+= 1;
+			document.getElementById("actionLeft").innerText = count+" try left";
+			successMessage.style.display = "none";
+			errorMessage.style.display = "block";
+			inputpin = "";
 		}
-		
-		
 	}
+	
+		
 
 
 }

@@ -15,13 +15,13 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="pin-generator half-width">
-                    <input id="randomNumberOutput" class="form-control" type="text">
+                    <input id="randomNumber" class="form-control" type="text">
                     <button class="generate-btn" onclick="randomNumberGenerate()">Generate Pin</button>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="input-section half-width">
-                    <input id="matchNumberOutput" class="form-control" type="text">
+                    <input id="matchNumber" class="form-control" type="text">
                     <div class="numbers">
                         <div class="calc-body">
                             <div class="calc-button-row">
@@ -54,8 +54,8 @@
                 </div>
             </div>
             <div class="notify-section">
-                <p id="erroreNotify" class="notify">❌ Pin Didn't Match, Please try again</p>
-                <p id="sussecNotify" class="notify">✅ Pin Matched... Secret door is opening for you</p>
+                <p id="errorMessage" class="notify">❌ Pin Didn't Match, Please try again</p>
+                <p id="successMessage" class="notify">✅ Pin Matched... Secret door is opening for you</p>
             </div>
         </div>
 
